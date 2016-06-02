@@ -7,6 +7,7 @@ const menubar = require('menubar');
 const pjson = require('../../package');
 
 const ENV = process.env.NODE_ENV;
+const IS_DEVELOPMENT = ENV === 'development';
 
 const mb = menubar({
 	index: `file://${path.resolve(__dirname, '../index.html')}`,
@@ -29,7 +30,7 @@ function _appReady() {
  * @private
  */
 function _windowCreated() {
-	if (ENV === 'development') {
+	if (IS_DEVELOPMENT) {
 		const { node, chrome, electron } = process.versions;
 
 		mb.window.openDevTools();

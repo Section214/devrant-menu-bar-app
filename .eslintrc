@@ -1,6 +1,5 @@
 {
     "env": {
-        "es6": true,
         "mocha": true,
         "node": true,
         "browser": true
@@ -9,29 +8,25 @@
     "plugins": [ "react" ],
 
     "parserOptions": {
+        "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
+            "arrowFunctions": true,
+            "blockBindings": true,
+            "defaultParams": true,
+            "destructuring": true,
+            "forOf": true,
+            "generators": true,
+            "objectLiteralComputedProperties": true,
+            "objectLiteralShorthandMethods": true,
+            "objectLiteralShorthandProperties": true,
+            "restParams": true,
+            "spread": true,
+            "templateStrings": true,
             "jsx": true,
-            "modules": true
+            "modules": true,
+            "experimentalObjectRestSpread": true
         }
-    },
-
-    "ecmaFeatures": {
-        "arrowFunctions": true,
-        "blockBindings": true,
-        "defaultParams": true,
-        "destructuring": true,
-        "forOf": true,
-        "generators": true,
-        "objectLiteralComputedProperties": true,
-        "objectLiteralShorthandMethods": true,
-        "objectLiteralShorthandProperties": true,
-        "restParams": true,
-        "spread": true,
-        "templateStrings": true,
-        "jsx": true,
-        "modules": true,
-        "experimentalObjectRestSpread": true
     },
 
     "rules": {
@@ -101,7 +96,6 @@
         "react/display-name": [ 0 ],
         "react/jsx-boolean-value": 1,
         "react/jsx-curly-spacing": [ 1, "always" ],
-        "react/jsx-max-props-per-line": 1,
         "react/jsx-no-duplicate-props": 2,
         "react/jsx-no-undef": 2,
         "react/jsx-sort-prop-types": 0,
