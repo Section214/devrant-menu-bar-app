@@ -11,7 +11,9 @@ const IS_DEVELOPMENT = ENV === 'development';
 
 const mb = menubar({
 	index: `file://${path.resolve(__dirname, '../index.html')}`,
-	icon: path.resolve(__dirname, '../img/icon.png')
+	icon: path.resolve(__dirname, '../img/icon.png'),
+	width: 500,
+	height: 600
 });
 
 /**

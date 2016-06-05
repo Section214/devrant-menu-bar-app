@@ -1,14 +1,14 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import sortRants from '../action-creators/sort-rants';
+import * as actions from '../actions';
 import Main from './Main';
 
-function mapStateToProps({ posts, comments }) {
-	return { posts, comments };
+function mapStateToProps({ selectedSort, rantsBySort }) {
+	return { selectedSort, rantsBySort };
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ sortRants }, dispatch);
+	return bindActionCreators(actions, dispatch);
 }
 
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);

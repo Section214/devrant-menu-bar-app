@@ -7,6 +7,7 @@ module.exports = {
 	devtool: 'source-map',
 
 	entry: [
+		'babel-polyfill',
 		'webpack-hot-middleware/client',
 		path.resolve(__dirname, 'src/js/devrant.js')
 	],
@@ -38,12 +39,17 @@ module.exports = {
 				query: {
 					presets: [ 'react', 'es2015', 'stage-0' ]
 				}
+			},
+
+			{
+				test: /\.json$/,
+				loader: 'json'
 			}
 		]
 	},
 
 	resolve: {
-		extensions: [ '', '.js', '.jsx' ],
+		extensions: [ '', '.js', '.jsx', '.json' ],
 		fallback: path.join(__dirname, 'node_modules')
 	},
 

@@ -4,7 +4,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-	entry: path.resolve(__dirname, 'src/js/devrant.js'),
+	entry: [
+		'babel-polyfill',
+		path.resolve(__dirname, 'src/js/devrant.js')
+	],
 
 	output: {
 		path: path.join(__dirname, 'dist'),
@@ -36,12 +39,17 @@ module.exports = {
 				query: {
 					presets: [ 'react', 'es2015', 'stage-0' ]
 				}
+			},
+
+			{
+				test: /\.json$/,
+				loader: 'json'
 			}
 		]
 	},
 
 	resolve: {
-		extensions: [ '', '.js', '.jsx' ],
+		extensions: [ '', '.js', '.jsx', '.json' ],
 		fallback: path.join(__dirname, 'node_modules')
 	},
 
