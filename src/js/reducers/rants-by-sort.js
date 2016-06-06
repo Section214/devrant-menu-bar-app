@@ -24,7 +24,10 @@ function rants(state = {
 				...state,
 				isFetching: false,
 				lastUpdated: action.receivedAt,
-				items: action.rants
+				items: [
+					...state.items,
+					...action.rants
+				]
 			};
 		}
 	}

@@ -16,16 +16,16 @@ const styles = {
 		top: 0,
 		left: 0,
 		width: '100%',
-		height: '4.5em',
+		height: '3.8em',
 		zIndex: 1,
-		borderBottom: '1px solid #e0e0e0'
+		borderBottom: '1px solid #efefef'
 	},
 	group: {
 		display: 'flex',
 		marginTop: '1em'
 	},
 	radio: {
-		width: '33%',
+		width: '28%',
 		marginRight: '1em'
 	}
 };
@@ -36,7 +36,7 @@ const Bar = props => {
 			<ToolbarGroup firstChild={ true }>
 				<Link to="/">
 					<IconButton>
-						<HomeIcon color="#000000de" />
+						<HomeIcon color="#aaaab8" />
 					</IconButton>
 				</Link>
 			</ToolbarGroup>
@@ -70,7 +70,7 @@ const Bar = props => {
 
 			<ToolbarGroup lastChild={ true }>
 				<IconButton>
-					<PowerIcon color="#000000de" />
+					<PowerIcon color="#aaaab8" />
 				</IconButton>
 			</ToolbarGroup>
 		</Toolbar>
@@ -79,7 +79,10 @@ const Bar = props => {
 
 const muiTheme = getMuiTheme({
 	palette: {
-		accent1Color: deepOrange500
+		// textColor: '#aaaab8',
+		primary1Color: '#f99a66',
+		accent1Color: '#f99a66',
+		borderColor: '#aaaab8'
 	}
 });
 

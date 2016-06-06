@@ -7,14 +7,14 @@ function _fetchRants(sort) {
 	};
 }
 
-function _requestRants(sort) {
+function _requestRants(sort, skip = 0) {
 	return dispatch => {
 		dispatch(
 			_fetchRants(sort)
 		);
 
 		const api = 'https://www.devrant.io/api/devrant/rants';
-		const url = `${api}?app=3&sort=${sort}&skip=0&limit=50`;
+		const url = `${api}?app=3&sort=${sort}&skip=${skip}&limit=50`;
 
 		fetch(url)
 			.then(res => {
@@ -41,10 +41,11 @@ function _receiveRants(sort, rants) {
 	};
 }
 
-function _shouldFetchRants(state, sort) {
+function _shouldFetchRants(state, sort, skip = 0) {
 	const rants = state.rantsBySort[sort];
+	const hydrate = rants.items.length === skip;
 
-	return !rants || !rants.isFetching || rants.didInvalidate;
+	return !rants || !rants.isFetching || rants.didInvalidate || hydrate;
 }
 
 export function selectRantsType(sort) {
@@ -61,14 +62,14 @@ export function invalidateRantsType(sort) {
 	};
 }
 
-export function fetchRantsIfNeeded(sort) {
+export function fetchRantsIfNeeded(sort, skip) {
 	return (dispatch, getState) => {
 		const state = getState();
-		const shouldFetch = _shouldFetchRants(state, sort);
+		const shouldFetch = _shouldFetchRants(state, sort, skip);
 
 		if (shouldFetch) {
 			return dispatch(
-				_requestRants(sort)
+				_requestRants(sort, skip)
 			);
 		}
 	};
