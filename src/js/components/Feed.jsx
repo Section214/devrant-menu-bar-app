@@ -144,7 +144,7 @@ const Feed = React.createClass({
 
 				<div style={ styles.progress }>
 					{
-						showSpinner && <CircularProgress size={ 1 } />
+						showSpinner && <CircularProgress size={ 59.5 } thickness={ 3.5 } style={{ margin: 5.25 }} />
 					}
 				</div>
 			</section>
